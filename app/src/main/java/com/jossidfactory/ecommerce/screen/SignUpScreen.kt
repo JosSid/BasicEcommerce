@@ -30,17 +30,19 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.jossidfactory.ecommerce.R
 import com.jossidfactory.ecommerce.component.ButtonBase
 import com.jossidfactory.ecommerce.component.LogoApp
 import com.jossidfactory.ecommerce.component.TextClick
 import com.jossidfactory.ecommerce.component.TextFieldBase
 import com.jossidfactory.ecommerce.component.TextFieldPassword
+import com.jossidfactory.ecommerce.navigation.Screen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(navController: NavController) {
     val nameValue = remember {
         mutableStateOf("")
     }
@@ -77,9 +79,21 @@ fun SignUpScreen() {
                 Spacer(modifier = Modifier.padding(5.dp))
                 TextFieldPassword(text = "Confirm Password", textValue = confirmPasswordValue)
                 Spacer(modifier = Modifier.padding(5.dp))
-                ButtonBase(text = "SignUp", onClick = {})
+                ButtonBase(text = "SignUp", onClick = {
+                    navController.navigate(Screen.LoginScreen.route) {
+                        popUpTo(Screen.SignupScreen.route) {
+                            inclusive = true
+                        }
+                    }
+                })
                 Spacer(modifier = Modifier.padding(5.dp))
-                TextClick(text = "Login", onClick = {})
+                TextClick(text = "Login", onClick = {
+                    navController.navigate(Screen.LoginScreen.route) {
+                        popUpTo(Screen.SignupScreen.route) {
+                            inclusive = true
+                        }
+                    }
+                })
             }
         }
     }

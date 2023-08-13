@@ -37,50 +37,15 @@ import com.jossidfactory.ecommerce.component.LogoApp
 import com.jossidfactory.ecommerce.component.TextClick
 import com.jossidfactory.ecommerce.component.TextFieldBase
 import com.jossidfactory.ecommerce.component.TextFieldPassword
-import com.jossidfactory.ecommerce.navigation.Screen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(navController: NavController) {
-    val emailValue = remember {
-        mutableStateOf("")
-    }
-
-    val passwordValue = remember {
-        mutableStateOf("")
-    }
+fun HomeScreen(navController: NavController) {
 
     Scaffold(
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
     ) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            item {
-                LogoApp()
-                Spacer(modifier = Modifier.padding(20.dp))
-                TextFieldBase(text = "Email", textValue = emailValue)
-                Spacer(modifier = Modifier.padding(10.dp))
-                TextFieldPassword(text = "Password", textValue = passwordValue)
-                Spacer(modifier = Modifier.padding(10.dp))
-                ButtonBase(text = "Login" , onClick = {
-                    navController.navigate(Screen.HomeScreen.route) {
-                        popUpTo(Screen.LoginScreen.route) {
-                            inclusive = true
-                        }
-                    }
-                })
-                Spacer(modifier = Modifier.padding(10.dp))
-                TextClick(text = "Sign Up", onClick = {
-                    navController.navigate(Screen.SignupScreen.route) {
-                        popUpTo(Screen.LoginScreen.route) {
-                            inclusive = true
-                        }
-                    }
-                })
-            }
-        }
+
     }
 }
