@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.jossidfactory.ecommerce.screen.LoginScreen
+import com.jossidfactory.ecommerce.screen.SignUpScreen
 import com.jossidfactory.ecommerce.ui.theme.EcommerceTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,25 +24,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.primary
                 ) {
-                    LoginScreen()
+                    SignUpScreen()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EcommerceTheme {
-        Greeting("Android")
     }
 }

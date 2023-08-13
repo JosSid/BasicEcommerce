@@ -40,12 +40,20 @@ import com.jossidfactory.ecommerce.component.TextFieldPassword
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun SignUpScreen() {
+    val nameValue = remember {
+        mutableStateOf("")
+    }
     val emailValue = remember {
         mutableStateOf("")
     }
-
+    val phoneValue = remember {
+        mutableStateOf("")
+    }
     val passwordValue = remember {
+        mutableStateOf("")
+    }
+    val confirmPasswordValue = remember {
         mutableStateOf("")
     }
 
@@ -59,13 +67,19 @@ fun LoginScreen() {
             item {
                 LogoApp()
                 Spacer(modifier = Modifier.padding(20.dp))
+                TextFieldBase(text = "Name", textValue = nameValue)
+                Spacer(modifier = Modifier.padding(5.dp))
                 TextFieldBase(text = "Email", textValue = emailValue)
-                Spacer(modifier = Modifier.padding(10.dp))
+                Spacer(modifier = Modifier.padding(5.dp))
+                TextFieldBase(text = "Phone", textValue = phoneValue)
+                Spacer(modifier = Modifier.padding(5.dp))
                 TextFieldPassword(text = "Password", textValue = passwordValue)
-                Spacer(modifier = Modifier.padding(10.dp))
-                ButtonBase(text = "Login" , onClick = {})
-                Spacer(modifier = Modifier.padding(10.dp))
-                TextClick(text = "Sign Up", onClick = {})
+                Spacer(modifier = Modifier.padding(5.dp))
+                TextFieldPassword(text = "Confirm Password", textValue = confirmPasswordValue)
+                Spacer(modifier = Modifier.padding(5.dp))
+                ButtonBase(text = "SignUp", onClick = {})
+                Spacer(modifier = Modifier.padding(5.dp))
+                TextClick(text = "Login", onClick = {})
             }
         }
     }
